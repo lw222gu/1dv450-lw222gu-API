@@ -1,0 +1,126 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ 
+body {
+    padding-top:35px;
+    font-size:13px;
+}
+
+#footer {
+    border:solid;
+    border-width:0;
+    border-top-width:1px;
+    border-color:rgb(200, 200, 200);
+    margin-top:35px;
+    padding-top:20px;
+    padding-bottom:10px;
+}
+
+h1 {
+    margin-bottom:25px;
+}
+
+h2 {
+    font-size:20px;
+    font-weight:bold;
+}
+
+p {
+    
+}
+
+
+/* Form css */
+input, textarea {
+    display:block;
+    border:solid;
+    border-radius:3px;
+    border-width:1px;
+    border-color:rgb(200, 200, 200);
+    padding:10px;
+    width:100%;
+}
+
+label {
+    margin-top:20px;
+    font-weight:normal;
+}
+
+#submit, #user-information a {
+    color:rgb(240, 240, 240);
+    background-color:rgb(30, 30, 30);
+    border:none;
+    border-radius:3px;
+    padding:15px 20px;
+    margin-top:20px;
+    margin-bottom:20px;
+    width:auto;
+}
+
+#submit:hover, #submit:focus, #user-information a:hover, #user-information a:focus {
+    background-color:rgb(60, 60, 60);
+    text-decoration:none;
+}
+
+
+/* User information css */
+
+#user-information {
+    float:right;
+    display:block;
+    height:60px;
+    padding-top:20px;
+}
+
+#user-information a, #user-information p {
+    display:inline;
+}
+
+#user-information a {
+    margin-left:25px;
+}
+
+
+/* User clients css */
+
+
+#user-clients {
+    list-style:none;
+    padding-left:0;
+    margin-top:10px;
+}
+
+#user-clients li {
+    background-color:rgb(245, 245, 240);
+    padding:15px;
+    margin-bottom:7px;
+}
+
+#user-clients li h2 {
+    margin-top:0;
+}
+
+#user-clients li p {
+    margin-bottom:5px;
+}
+
+.active {
+    color: green;
+}
+
+.inactive, .red {
+    color: red;
+}

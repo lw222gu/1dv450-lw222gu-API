@@ -1,0 +1,29 @@
+<h1>Applikationer</h1>
+<div>
+    <ul id="user-clients">
+        <% @clients.each do |client| %>
+            <li>
+                <h2><%= client.name %></h2>
+                <p><strong>Användare:</strong> <%= client.user.username %></p>
+                <p><strong>API-nyckel:</strong> <%= client.key %></p>
+                
+                <% if client.active %>
+                    <p class="active"><strong>Status: </strong>Aktiv</p>
+                <% else %>
+                    <p class="inactive"><strong>Status: </strong>Inaktiverad av admin</p>
+                <% end %>
+                
+                <p><strong>Url:</strong> <%= client.url %></p>
+                <p><strong>Beskrivning:</strong> <%= client.description %></p>
+                
+                <% if client.active %>
+                    <%= link_to 'Inaktivera', revoke_client_path(id: client.id) %>
+                <% else %>
+                    <%= link_to 'Återaktivera', reactivate_client_path(id: client.id) %>
+                <% end %>
+                <br/>
+                <%= link_to "Ta bort (går inte att ångra)", client, method: :delete %>
+            </li>
+        <% end %>
+    </ul>
+</div>

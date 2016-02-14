@@ -1,0 +1,18 @@
+<div class="col-md-8">
+    <h1>Välkommen!</h1>
+    <p>Information om API:t och länk till dokumentation kommer finnas här när API:t är på plats.</p>
+</div>
+<div id="login" class="col-md-4">
+    <h2>Logga in</h2>
+    <fieldset>
+        <%= form_tag(login_path, method: 'post') do %>
+            <%= label_tag(:username, 'Användarnamn') %>
+            <%= text_field_tag(:username) %>
+            <%= label_tag(:password, 'Lösenord') %>
+            <%= password_field_tag(:password) %>
+            <%= submit_tag 'Logga in', :id => "submit" %>
+        <% end %>
+    </fieldset>
+    
+    <%= link_to 'Registrera ny användare', new_user_path %>
+</div>
