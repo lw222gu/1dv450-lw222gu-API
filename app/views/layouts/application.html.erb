@@ -9,13 +9,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    
+
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %> container">
-        <p><%= value %></p>
+      <p><%= value %></p>
     </div>
   <% end %>
-  
+
   <div class="container">
     <% if !@current_user.nil? %>
       <div id="user-information">
@@ -25,7 +25,7 @@
     <% end %>
     <%= yield %>
   </div>
-  
+
   <%= render 'layouts/footer' %>
 
 </body>

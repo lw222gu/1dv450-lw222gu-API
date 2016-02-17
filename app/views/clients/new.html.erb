@@ -1,15 +1,15 @@
 <div id="register-client">
-    <h1>Lägg till applikation</h1>
-    <fieldset>
-        <%= form_for @client do |c| %>
-            <%= c.label 'Namn (max 50 tecken)', :for => 'client_name' %>
-            <%= c.text_field :name %>
-            <%= c.label 'Beskrivning (max 250 tecken)', :for => 'client_description' %>
-            <%= c.text_area :description %>
-            <%= c.label :url %>
-            <%= c.url_field :url %>
-            <%= c.submit 'Skapa', id: "submit" %>
-        <% end %>
-    </fieldset>
-    <%= link_to 'Tillbaka till min sida', clients_path %>
+  <h1>Lägg till applikation</h1>
+  <fieldset>
+    <%= form_for @client do |c| %>
+      <%= c.label 'Namn (max 50 tecken)', :for => 'client_name' %>
+      <%= c.text_field :name %>
+      <%= c.label 'Beskrivning (max 250 tecken)', :for => 'client_description' %>
+      <%= c.text_area :description %>
+      <%= c.label :url %>
+      <%= c.url_field :url %>
+      <%= c.submit 'Skapa', id: "submit" %>
+    <% end %>
+  </fieldset>
+  <%= link_to 'Tillbaka till min sida', clients_path %>
 </div>

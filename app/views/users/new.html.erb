@@ -1,15 +1,15 @@
 <div id="register" class="col-md-4">
-    <h1>Registrera</h1>
-    <fieldset>
-        <%= form_for @user do |f| %>
-            <%= f.label 'Användarnamn (3-25 tecken)', :for => 'user_username' %>
-            <%= f.text_field :username %>
-            <%= f.label 'Lösenord (minst 6 tecken)', :for => 'user_password' %>
-            <%= f.password_field :password %>
-            <%= f.label 'Ange lösenordet igen', :for => 'user_password_confirmation' %>
-            <%= f.password_field :password_confirmation %>
-            <%= f.submit 'Registrera', :id => "submit" %>
-        <% end %>
-    </fieldset>
-    <%= link_to 'Tillbaka till startsidan', root_path %>
+  <h1>Registrera</h1>
+  <fieldset>
+    <%= form_for @user do |f| %>
+      <%= f.label 'Användarnamn (3-25 tecken)', :for => 'user_username' %>
+      <%= f.text_field :username %>
+      <%= f.label 'Lösenord (minst 6 tecken)', :for => 'user_password' %>
+      <%= f.password_field :password %>
+      <%= f.label 'Ange lösenordet igen', :for => 'user_password_confirmation' %>
+      <%= f.password_field :password_confirmation %>
+      <%= f.submit 'Registrera', :id => "submit" %>
+    <% end %>
+  </fieldset>
+  <%= link_to 'Tillbaka till startsidan', root_path %>
 </div>
