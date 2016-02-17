@@ -1,19 +1,13 @@
-# Laboration 1, Webbramverk
+# Laboration 2, Webbramverk
 Lisa Westlund, lw222gu
+Commithistorik från Laboration 1 finns i repot [lw222gu_1dv450](https://github.com/lw222gu/1dv450_lw222gu).
 
 ## Körinstruktioner
-Applikationen körs via [Cloud9](https://dv450-lw222gu-lw222gu.c9users.io).
-Vill du testa den lokalt, kör följande i terminalen:
-
-1. cd apiKeyRegistration
-2. bundle install
-2. rake db:migrate
-3. rake db:seed
-4. rails server (eller rails s -b $IP -p $PORT via Cloud9:s terminal)
+-
 
 
 ## Inloggningsuppgifter
-Efter att du kört db:seed, eller om du hellre testar via Cloud9-länken finns nedanstående konton genererade:
+Nedanstående konton finns att testa med:
 
 1. Admin
    * Användarnamn: admin
