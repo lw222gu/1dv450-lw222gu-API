@@ -1,28 +1,25 @@
-# ruby-on-rails-vagrant
+# Laboration 1, Webbramverk
+Lisa Westlund, lw222gu
 
-A vagrant file for the course 1dv450, Linnaeus University, Sweden, Kalmar
-The installation will take 10-15 minutes the first time.
+## Körinstruktioner
+Applikationen körs via [Cloud9](https://dv450-lw222gu-lw222gu.c9users.io).
+Vill du testa den lokalt, kör följande i terminalen:
 
-Add the vagrantfile and the provision.sh to your own repo and run "vagrant up"
+1. cd apiKeyRegistration
+2. bundle install
+2. rake db:migrate
+3. rake db:seed
+4. rails server (eller rails s -b $IP -p $PORT via Cloud9:s terminal)
 
-## The Vagrantfile
-The vagrantfile installs:
-- Ubuntu ("hashicorp/precise64") if your system dosn´t support 64 change the vagrantfile to "hashicorp/precise32"
 
-- rvm (latest)
-- ruby (latest)
-- Rails (latest)
-- SQLLite
-- postgreeSQL
-- node.js
+## Inloggningsuppgifter
+Efter att du kört db:seed, eller om du hellre testar via Cloud9-länken finns nedanstående konton genererade:
 
-## using vagrant
-To install (first time) and start the virtual machine ```vagrant up```
+1. Admin
+   * Användarnamn: admin
+   * Lösenord: pass123
+2. En användare
+   * Användarnamn: user
+   * Lösenord: 123456
 
-The go to the vagrant folder (this is mirrored to your host OS)
-``` cd /vagrant ```
-
-from here you can make a new rails application.
-
-When you ready run ```vagrant halt``` to halt the virtual machine.
-Dont forget to commit and push your code
+Du kan givetvis också skapa egna användarkonton, men inte adminkonton.
