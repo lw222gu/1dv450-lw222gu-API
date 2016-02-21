@@ -1,9 +1,10 @@
-<h1>Applikationer</h1>
+<h1>Admin</h1>
 <div>
+  <h2>Registrerade applikationer</h2>
   <ul id="user-clients">
     <% @clients.each do |client| %>
       <li>
-        <h2><%= client.name %></h2>
+        <h3><%= client.name %></h3>
         <p><strong>Användare:</strong> <%= client.user.username %></p>
         <p><strong>API-nyckel:</strong> <%= client.key %></p>
 

@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
   before_action :require_login
+  before_action :check_developer_rights
   before_action :fetch_client, only: [:destroy, :revoke, :reactivate]
 
   def index
