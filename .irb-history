@@ -1,0 +1,4 @@
+u = user.find(2)
+u = User.find(2)
+u = User.find(3)
+exit

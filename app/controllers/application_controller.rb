@@ -14,14 +14,14 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    if current_user.nil? then
+    if current_user.nil?
       flash[:danger] = 'Du måste logga in för att se sidan du efterfrågade.'
       redirect_to root_path
     end
   end
 
   def check_admin_rights
-    unless current_user.admin?
+    unless current_user.role_id == 3
       flash[:danger] = 'Du har inte rättigheter att visa sidan du efterfrågade.'
       redirect_to clients_path
     end

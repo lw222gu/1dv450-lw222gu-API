@@ -8,18 +8,35 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+creator_role = Role.create
+creator_role.role = 'creator'
+
+developer_role = Role.create
+developer_role.role = 'developer'
+
+admin_role = Role.create
+admin_role.role = 'admin'
+
 admin = User.create
 admin.username = 'admin'
 admin.password = 'pass123'
 admin.password_confirmation = 'pass123'
-admin.admin = true
+admin.role_id = 3
 admin.save
 
-u = User.create
-u.username = 'user'
-u.password = '123456'
-u.password_confirmation = '123456'
-u.save
+developer = User.create
+developer.username = 'developer'
+developer.password = '123456'
+developer.password_confirmation = '123456'
+developer.role_id = 2
+developer.save
+
+creator = User.create
+creator.username = 'creator'
+creator.password = '123456'
+creator.password_confirmation = '123456'
+creator.role_id = 1
+creator.save
 
 c = Client.create
 c.name = 'En applikation'

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     u = User.find_by_username(params[:username])
     if u && u.authenticate(params[:password])
       session[:userid] = u.id
-      if u.admin
+      if u.role_id == 3
         redirect_to admins_path
       else
         redirect_to clients_path
