@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'reactivate_client' => 'clients#reactivate', as: :reactivate_client
 
   resources :clients, only: [:index, :create, :new, :destroy]
+  resources :events, only: [:index, :create, :new, :destroy]
   resources :users, only: [:create, :new]
   resources :admins, only: [:index]
 end
