@@ -18,10 +18,21 @@
 
   <div class="container">
     <% if !@current_user.nil? %>
-      <div id="user-information">
-        <p>Inloggad som: <%= @current_user.username %></p>
-        <%= link_to 'Logga ut', logout_path, method: :delete, data: {no_turbolink: true} %>
-      </div>
+      <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav" id="menu">
+          <li><%= link_to 'Event', events_path %></li>
+          <% if @current_user.role_id == 2 || @current_user.role_id == 3 %>
+          <li><%= link_to 'Applikationer', clients_path %></li>
+          <% end %>
+          <% if @current_user.role_id == 3 %>
+          <li><%= link_to 'Admin', admins_path %></li>
+          <% end %>
+        </ul>
+        <div class="navbar-right" id="user-information">
+          <p>Inloggad som: <%= @current_user.username %></p>
+          <%= link_to 'Logga ut', logout_path, method: :delete, data: {no_turbolink: true} %>
+        </div>
+      </nav>
     <% end %>
     <%= yield %>
   </div>

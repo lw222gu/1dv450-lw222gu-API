@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- 
+
 body {
     padding-top:35px;
     font-size:13px;
@@ -39,7 +39,7 @@ h2 {
 }
 
 p {
-    
+
 }
 
 
@@ -64,7 +64,7 @@ label {
     background-color:rgb(30, 30, 30);
     border:none;
     border-radius:3px;
-    padding:15px 20px;
+    padding:10px 10px;
     margin-top:20px;
     margin-bottom:20px;
     width:auto;
@@ -76,13 +76,24 @@ label {
 }
 
 
+/* Menu */
+
+#menu {
+display:block;
+}
+
+#menu li a:hover {
+    background-color: lightgray;
+}
+
 /* User information css */
 
 #user-information {
-    float:right;
-    display:block;
+    /*float:right;
+    display:block;*/
     height:60px;
     padding-top:20px;
+    margin-right: 15px;
 }
 
 #user-information a, #user-information p {
