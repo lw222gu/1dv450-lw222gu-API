@@ -13,10 +13,10 @@ class UsersController < ApplicationController
     else
       if User.find_by username: @user.username
         flash[:danger] = 'Användarnamnet är upptaget. Prova med något annat.'
-        render :action => 'new' && return
+        render :new and return
       end
       flash[:danger] = 'Något gick fel vid registreringen.'
-      render 'new'
+      render :new
     end
   end
 

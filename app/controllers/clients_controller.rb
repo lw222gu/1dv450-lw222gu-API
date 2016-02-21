@@ -21,7 +21,7 @@ class ClientsController < ApplicationController
       redirect_to clients_path
     else
       flash[:danger] = 'Applikationen kunde inte sparas.'
-      render :action => 'new'
+      render :new
     end
   end
 
