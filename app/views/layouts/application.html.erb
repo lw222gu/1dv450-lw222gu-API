@@ -30,6 +30,9 @@
         </ul>
         <div class="navbar-right" id="user-information">
           <p>Inloggad som: <%= @current_user.username %></p>
+          <% if @current_user.role_id == 1 %>
+            <%= link_to 'Jag är utvecklare och vill ha ett utvecklarkonto', user_path(:id => @current_user.id), method: :put %>
+          <% end %>
           <%= link_to 'Logga ut', logout_path, method: :delete, data: {no_turbolink: true} %>
         </div>
       </nav>

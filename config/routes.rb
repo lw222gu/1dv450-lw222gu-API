@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   resources :clients, only: [:index, :create, :new, :destroy]
   resources :events, only: [:index, :create, :new, :destroy]
-  resources :users, only: [:create, :new]
+  resources :users, only: [:create, :new, :update]
   resources :admins, only: [:index]
 end

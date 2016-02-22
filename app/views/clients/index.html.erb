@@ -1,22 +1,22 @@
 <h1>Applikationer</h1>
-<div>
-<%= link_to 'Lägg till applikation', new_client_path, :id => 'add-client' %>
-<ul id="user-clients">
-  <% @user.clients.each do |client| %>
-    <li>
-        <h2><%= client.name %></h2>
-        <p><strong>API-nyckel:</strong> <%= client.key %></p>
+  <div>
+  <%= link_to 'Lägg till applikation', new_client_path, :id => 'add-client' %>
+  <ul id="user-clients">
+    <% @user.clients.each do |client| %>
+      <li>
+          <h2><%= client.name %></h2>
+          <p><strong>API-nyckel:</strong> <%= client.key %></p>
 
-        <% if client.active %>
-          <p class="active"><strong>Status: </strong>Aktiv</p>
-        <% else %>
-          <p class="inactive"><strong>Status: </strong>Inaktiverad av admin</p>
-        <% end %>
+          <% if client.active %>
+            <p class="active"><strong>Status: </strong>Aktiv</p>
+          <% else %>
+            <p class="inactive"><strong>Status: </strong>Inaktiverad av admin</p>
+          <% end %>
 
-        <p><strong>Url:</strong> <%= client.url %></p>
-        <p><strong>Beskrivning:</strong> <%= client.description %></p>
-        <%= link_to "Ta bort (går inte att ångra)", client, method: :delete %>
-    </li>
-  <% end %>
-</ul>
+          <p><strong>Url:</strong> <%= client.url %></p>
+          <p><strong>Beskrivning:</strong> <%= client.description %></p>
+          <%= link_to "Ta bort (går inte att ångra)", client, method: :delete %>
+      </li>
+    <% end %>
+  </ul>
 </div>

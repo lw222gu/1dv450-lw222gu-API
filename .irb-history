@@ -2,4 +2,17 @@ u = user.find(2)
 u = User.find(2)
 u = User.find(1)
 u = User.find(3)
+u = User.find(last)
+u = User.find.last
+rake routes
+rake route
+rails c
+u = User.last
+u.update(role_id: 2)
+u.role_id = 2
+u
+u.update
+u.password_confirmation = "123456"
+u.save
+u.update(username: "hejhejhej")
 exit

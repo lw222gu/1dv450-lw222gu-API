@@ -80,6 +80,11 @@ label {
   text-decoration:none;
 }
 
+#developer-checkbox {
+  display: inline;
+  width:20px;
+}
+
 
 /* Menu */
 
