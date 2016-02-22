@@ -1,3 +1,5 @@
+require 'api_constraints'
+
 Rails.application.routes.draw do
   root 'sessions#new'
 
@@ -16,5 +18,10 @@ Rails.application.routes.draw do
   # API routes
   namespace :api, defaults: { format: :json },
     constraints: { subdomain: 'api' }, path: '/' do
+    # Versioning through headers. Default version is v1.
+    scope module: :v1,
+      constraints: ApiConstraints.new(version: 1, default: true) do
+        # routes here.
+    end
   end
 end
