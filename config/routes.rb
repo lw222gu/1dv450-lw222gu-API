@@ -12,4 +12,9 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :create, :new, :destroy]
   resources :users, only: [:create, :new, :update]
   resources :admins, only: [:index]
+
+  # API routes
+  namespace :api, defaults: { format: :json },
+    constraints: { subdomain: 'api' }, path: '/' do
+  end
 end

@@ -104,3 +104,21 @@ rails s -b 0.0.0.0
 rails c
 rake routes
 exit
+rails s -b 0.0.0.0
+rails c
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+exit

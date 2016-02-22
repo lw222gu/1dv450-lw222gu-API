@@ -30,6 +30,8 @@ gem 'bootstrap-sass'
 
 gem 'rubocop'
 
+gem 'active_model_serializers'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
