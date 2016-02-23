@@ -122,3 +122,15 @@ rails s -b 0.0.0.0
 rails s -b 0.0.0.0
 rails s -b 0.0.0.0
 exit
+mkdir app/controllers/api/v1
+bundle install
+rails g rspec:install
+mkdir lib/spec
+touch lib/spec/api_constraints_spec.rb
+bundle exec rspec lib/spec/api_constraints_spec.rb
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+bundle exec rspec lib/spec/api_constraints_spec.rb
+bundle exec rspec lib/spec/api_constraints_spec.rb
+bundle exec rspec lib/spec/api_constraints_spec.rb
+rails s -b 0.0.0.0
