@@ -16,12 +16,19 @@ Rails.application.routes.draw do
   resources :admins, only: [:index]
 
   # API routes
-  namespace :api, defaults: { format: :json },
-    constraints: { subdomain: 'api' }, path: '/' do
-    # Versioning through headers. Default version is v1.
-    scope module: :v1,
-      constraints: ApiConstraints.new(version: 1, default: true) do
-        # routes here.
+  namespace :api do
+    namespace :v1 do
+      resources :users # this isn´t necessary I guess, remember to remove it if not used
+      resources :salaries
     end
   end
+
+  # namespace :api, defaults: { format: :json },
+    # constraints: { subdomain: 'api' }, path: '/' do
+    # Versioning through headers. Default version is v1.
+    # scope module: :v1,
+      # constraints: ApiConstraints.new(version: 1, default: true) do
+      # resources :users # this isn´t necessary I guess, remember to remove it if not used
+    # end
+  # end
 end

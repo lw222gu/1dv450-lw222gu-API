@@ -46,3 +46,7 @@ c.url = 'www.test.se'
 c.key = DateTime.now.strftime('%s') + SecureRandom.hex(20)
 c.user_id = 2
 c.save
+
+salary = Salary.create
+salary.salary = 25_000
+salary.save

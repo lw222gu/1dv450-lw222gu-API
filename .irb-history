@@ -15,4 +15,5 @@ u.update
 u.password_confirmation = "123456"
 u.save
 u.update(username: "hejhejhej")
+s = Salary.last
 exit
