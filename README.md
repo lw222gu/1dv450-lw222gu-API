@@ -1,22 +1,31 @@
-# Laboration 2, Webbramverk
+# Laboration 2, Webbramverk, Linnaeus University
 * Lisa Westlund, lw222gu
-* Commithistorik från Laboration 1 finns i repot [lw222gu_1dv450](https://github.com/lw222gu/1dv450_lw222gu).
+* [Commit history from Laboration 1](https://github.com/lw222gu/1dv450_lw222gu).
 
-## Körinstruktioner
--
+## Instructions
+* Download, or fork and clone repository.
+* Run:
+  * `> vagrant up`
+  * `> vagrant ssh` - if the terminal asks for a password it is `vagrant`
+  * `$ bundle install`
+  * `$ rake db:schema:load`
+  * `$ rake db:seed`
+  * `$ rails s -b 0.0.0.0`
 
-
-## Inloggningsuppgifter
-Nedanstående konton finns att testa med:
+## Existing user accounts
+Test the application using the following accounts:
 
 1. Admin
-   * Användarnamn: `admin`
-   * Lösenord: `pass123`
-2. En resursägare
-   * Användarnamn: `creator`
-   * Lösenord: `123456`
-3. En utvecklare
-   * Användarnamn: `developer`
-   * Lösenord: `123456`
+   * Username: `admin`
+   * Password: `pass123`
+2. Resource owner
+   * Username: `creator`
+   * Password: `123456`
+3. Developer
+   * Username: `developer`
+   * Password: `123456`
 
-Du kan givetvis också skapa egna användarkonton, men inte adminkonton.
+You can create your own user accounts (resource owner and developer).
+
+---
+Many thanks to [Oskar](https://github.com/OskarKlintrot) for contributing with a working vagrant setup.
