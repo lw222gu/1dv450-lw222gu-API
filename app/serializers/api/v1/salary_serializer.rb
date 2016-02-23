@@ -1,3 +1,3 @@
-class Api::V1::SalarySerializer < ActiveModel::Serializer
+class Api::V1::SalarySerializer < Api::V1::BaseSerializer
   attributes :id, :salary
 end
