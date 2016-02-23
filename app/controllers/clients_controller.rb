@@ -13,7 +13,6 @@ class ClientsController < ApplicationController
 
   def create
     @client = Client.new(client_params)
-    @client.key = DateTime.now.strftime('%s') + SecureRandom.hex(20)
     @client.user_id = session[:userid]
 
     if @client.save
@@ -28,7 +27,7 @@ class ClientsController < ApplicationController
   def destroy
     @client.destroy
     flash[:success] = 'Applikationen raderades.'
-    if current_user.admin?
+    if current_user.role_id == 3
       redirect_to admins_path
     else
       redirect_to clients_path
