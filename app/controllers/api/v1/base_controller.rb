@@ -9,6 +9,8 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def not_found!
+    # TODO: Instead of formatting json here, call a method that can handle
+    # several error messages at once.
     render json: { status: 404, errors: 'Not found' }.to_json
   end
 end

@@ -16,4 +16,7 @@ u.password_confirmation = "123456"
 u.save
 u.update(username: "hejhejhej")
 s = Salary.last
+s = Salary.create
+s.salary = 30000
+s.save
 exit
