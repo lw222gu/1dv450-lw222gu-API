@@ -4,5 +4,6 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, on: :create
   has_many :clients
   has_one :role
+  has_many :salaries
   has_many :events
 end

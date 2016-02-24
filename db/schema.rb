@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224081346) do
+ActiveRecord::Schema.define(version: 20160224152238) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name",        limit: 50,                 null: false
@@ -45,11 +45,21 @@ ActiveRecord::Schema.define(version: 20160224081346) do
   end
 
   create_table "salaries", force: :cascade do |t|
-    t.integer  "wage",                   null: false
-    t.string   "title",      limit: 250, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "wage",                    null: false
+    t.string   "title",       limit: 250, null: false
+    t.integer  "user_id"
+    t.integer  "location_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
+
+  create_table "salaries_tags", id: false, force: :cascade do |t|
+    t.integer "salary_id", null: false
+    t.integer "tag_id",    null: false
+  end
+
+  add_index "salaries_tags", ["salary_id", "tag_id"], name: "index_salaries_tags_on_salary_id_and_tag_id"
+  add_index "salaries_tags", ["tag_id", "salary_id"], name: "index_salaries_tags_on_tag_id_and_salary_id"
 
   create_table "tags", force: :cascade do |t|
     t.string   "tag",        limit: 30, null: false

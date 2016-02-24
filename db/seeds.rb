@@ -47,16 +47,6 @@ c.key = DateTime.now.strftime('%s') + SecureRandom.hex(20)
 c.user_id = 2
 c.save
 
-salary = Salary.create
-salary.wage = 28_000
-salary.title = 'Web developer'
-salary.save
-
-salary2 = Salary.create
-salary2.wage = 29_500
-salary2.title = 'Web developer'
-salary2.save
-
 location = Location.create
 location.latitude = 60.6065
 location.longitude = 15.6355
@@ -74,3 +64,16 @@ tag.save
 tag2 = Tag.create
 tag2.tag = 'HTML'
 tag2.save
+
+
+salary = Salary.create
+salary.wage = 28_000
+salary.title = 'Web developer'
+salary.location_id = 1
+salary.save
+
+salary2 = Salary.create
+salary2.wage = 29_500
+salary2.title = 'Web developer'
+salary2.location_id = 2
+salary2.save
