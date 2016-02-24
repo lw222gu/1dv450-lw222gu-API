@@ -17,8 +17,8 @@ class Api::V1::TagsController < Api::V1::BaseController
 
   def create
     tag = Tag.new(create_params)
-    # TODO: add functionality for returning an error if salary is not valid.
-    tag.save! # TODO: If not valid, ActiveRecord::recordInvalid. Add rescue.
+    # If not valid, ActiveRecord::recordInvalid rescue in BaseController
+    tag.save!
     render(
       json: tag,
       status: 201,

@@ -18,8 +18,8 @@ class Api::V1::SalariesController < Api::V1::BaseController
   def create
     salary = Salary.new(create_params)
     return invalid unless salary.valid?
-    # TODO: add functionality for returning an error if salary is not valid.
-    salary.save! # TODO: If not valid, ActiveRecord::recordInvalid. Add rescue.
+    # If not valid, ActiveRecord::recordInvalid rescue in BaseController
+    salary.save!
     render(
       json: salary,
       status: 201,

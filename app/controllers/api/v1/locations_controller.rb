@@ -18,8 +18,8 @@ class Api::V1::LocationsController < Api::V1::BaseController
   def create
     location = Location.new(create_params)
     return invalid unless location.valid?
-    # TODO: add functionality for returning an error if salary is not valid.
-    location.save! # TODO: If not valid, ActiveRecord::recordInvalid. Add rescue.
+    # If not valid, ActiveRecord::recordInvalid rescue in BaseController
+    location.save!
     render(
       json: location,
       status: 201,
