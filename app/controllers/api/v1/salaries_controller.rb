@@ -1,7 +1,4 @@
 class Api::V1::SalariesController < Api::V1::BaseController
-
-  before_action :sanitize_params, only: [:create]
-
   def index
     salaries = Salary.all
     render(
@@ -39,14 +36,10 @@ class Api::V1::SalariesController < Api::V1::BaseController
     parameters = ActionController::Parameters.new(
       salary:
       {
-        wage: params[:wage],
+        wage: params[:wage].to_i,
         title: params[:title]
       }
     )
     parameters.require(:salary).permit(:wage, :title)
-  end
-
-  def sanitize_params
-    params[:wage] = params[:wage].to_i
   end
 end
