@@ -175,3 +175,98 @@ rails s -b 0.0.0.0
 rails s -b 0.0.0.0
 rails s -b 0.0.0.0
 exit
+rails s -b 0.0.0.0
+rails g model location
+rake db:drop
+rake db:migrate
+rake db:seed
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails g model tag
+rails g controller api/v1/locations
+rails g controller api/v1/tags
+rails g serializer api/v1/location
+rails g serializer api/v1/tag
+rake db:drop
+rake db:migrate
+rake db:seed
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rake routes
+rails s -b 0.0.0.0
+rails c
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rake db:drop
+rake db:migrate
+rake db:seed
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rake db:schema:load
+rake db:seed
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails destroy controller events
+rails g model salary_tag
+rails destroy model salary_tag
+rake db:drop
+rake db:migrate
+rake db:seed
+rails g migration create_join_table salary tag
+rake db:migrate
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rake db:drop
+rake db:migrate
+rake db:seed
+rake db:seed
+rake db:seed
+rake db:drop
+rake db:migrate
+rake db:seed
+rails s -b 0.0.0.0
+rake db:seed
+rails s -b 0.0.0.0
+rake db:schema:load
+rake db:seed
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails g serializer api/v1 location_short
+rails g serializer api/v1/ location_short
+rails destroy serializer api/v1/ location_short
+rails g serializer api/v1/ location
+rails g serializer api/v1/location_short
+rails g serializer api/v1/salary_short
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
