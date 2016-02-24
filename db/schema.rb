@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224065833) do
+ActiveRecord::Schema.define(version: 20160224081346) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name",        limit: 50,                 null: false
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20160224065833) do
   end
 
   create_table "locations", force: :cascade do |t|
+    t.decimal  "latitude",   null: false
+    t.decimal  "longitude",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,6 +49,12 @@ ActiveRecord::Schema.define(version: 20160224065833) do
     t.string   "title",      limit: 250, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "tag",        limit: 30, null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "users", force: :cascade do |t|

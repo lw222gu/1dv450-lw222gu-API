@@ -56,3 +56,21 @@ salary2 = Salary.create
 salary2.salary = 29_500
 salary2.title = 'Web developer'
 salary2.save
+
+location = Location.create
+location.latitude = 60.6065
+location.longitude = 15.6355
+location.save
+
+location2 = Location.create
+location2.latitude = 60.6341456
+location2.longitude = 15.8613386
+location2.save
+
+tag = Tag.create
+tag.tag = 'JavaScript'
+tag.save
+
+tag2 = Tag.create
+tag2.tag = 'HTML'
+tag2.save

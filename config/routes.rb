@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users # this isn´t necessary I guess, remember to remove it if not used
       resources :salaries
+      resources :tags
+      resources :locations
     end
   end
 
