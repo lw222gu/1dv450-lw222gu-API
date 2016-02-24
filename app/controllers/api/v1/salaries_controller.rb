@@ -17,6 +17,11 @@ class Api::V1::SalariesController < Api::V1::BaseController
 
   def create
     salary = Salary.new(create_params)
+    if create_params[:tags].present?
+      create_params[:tags].each do |tag|
+        salary.tags << tag
+      end
+    end
     return not_acceptable unless salary.valid?
     # If not valid, ActiveRecord::recordInvalid rescue in BaseController
     salary.save!
@@ -44,6 +49,6 @@ class Api::V1::SalariesController < Api::V1::BaseController
         title: params[:title]
       }
     )
-    parameters.require(:salary).permit(:wage, :title)
+    parameters.require(:salary).permit(:wage, :title, tags: [:tag])
   end
 end
