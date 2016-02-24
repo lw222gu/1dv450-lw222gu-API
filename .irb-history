@@ -19,4 +19,5 @@ s = Salary.last
 s = Salary.create
 s.salary = 30000
 s.save
+Salary.find(3)
 exit

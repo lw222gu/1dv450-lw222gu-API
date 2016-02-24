@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20160224081346) do
   end
 
   create_table "salaries", force: :cascade do |t|
-    t.integer  "salary",                 null: false
+    t.integer  "wage",                   null: false
     t.string   "title",      limit: 250, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
