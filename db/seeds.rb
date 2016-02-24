@@ -48,5 +48,11 @@ c.user_id = 2
 c.save
 
 salary = Salary.create
-salary.salary = 25_000
+salary.salary = 28_000
+salary.title = 'Web developer'
 salary.save
+
+salary2 = Salary.create
+salary2.salary = 29_500
+salary2.title = 'Web developer'
+salary2.save

@@ -134,3 +134,44 @@ bundle exec rspec lib/spec/api_constraints_spec.rb
 bundle exec rspec lib/spec/api_constraints_spec.rb
 bundle exec rspec lib/spec/api_constraints_spec.rb
 rails s -b 0.0.0.0
+bundle install
+rails s -b 0.0.0.0
+rails g controller api/v1/base
+rails g controller api/v1/users
+rails g serializer app/serializers/api/v1/user
+rails g serializer api/v1/user
+rails s -b 0.0.0.0
+rails g model salary
+rake db:migrate
+rake db:migrate
+rake db:seed
+rake db:seed
+rake db:seed
+rails c
+rails s -b 0.0.0.0
+rails g controller api/v1/salaries
+rails g serializer api/v1/salary
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails g serializer api/v1/base
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails c
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+exit
