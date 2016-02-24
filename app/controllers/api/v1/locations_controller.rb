@@ -17,7 +17,7 @@ class Api::V1::LocationsController < Api::V1::BaseController
 
   def create
     location = Location.new(create_params)
-    return invalid unless location.valid?
+    return not_acceptable unless location.valid?
     # If not valid, ActiveRecord::recordInvalid rescue in BaseController
     location.save!
     render(
@@ -26,6 +26,9 @@ class Api::V1::LocationsController < Api::V1::BaseController
       location: api_v1_location_path(location.id),
       serializer: Api::V1::LocationSerializer
     )
+  end
+
+  def update
   end
 
   def destroy

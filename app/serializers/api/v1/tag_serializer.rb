@@ -1,3 +1,3 @@
-class Api::V1::TagSerializer < ActiveModel::Serializer
+class Api::V1::TagSerializer < Api::V1::BaseSerializer
   attributes :id, :tag
 end

@@ -17,7 +17,7 @@ class Api::V1::SalariesController < Api::V1::BaseController
 
   def create
     salary = Salary.new(create_params)
-    return invalid unless salary.valid?
+    return not_acceptable unless salary.valid?
     # If not valid, ActiveRecord::recordInvalid rescue in BaseController
     salary.save!
     render(
@@ -26,6 +26,9 @@ class Api::V1::SalariesController < Api::V1::BaseController
       location: api_v1_salary_path(salary.id),
       serializer: Api::V1::SalarySerializer
     )
+  end
+
+  def update
   end
 
   def destroy
