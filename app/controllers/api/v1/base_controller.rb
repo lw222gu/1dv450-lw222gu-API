@@ -26,4 +26,11 @@ class Api::V1::BaseController < ApplicationController
     # If string can not be converted to an integer, or string is '', return nil
     nil
   end
+
+  def convert_to_decimal(string)
+    Float(string || '')
+  rescue ArgumentError
+    # If string can not be converted to a float, or string is '', return nil
+    nil
+  end
 end
