@@ -1,9 +1,9 @@
 class Api::V1::BaseController < ApplicationController
-  # Disable sessions, since API on HTTP are stateless.
   before_action :destroy_session
-
+  protect_from_forgery with: :null_session
   rescue_from ActiveRecord::RecordNotFound, with: :not_found!
 
+  # Disable sessions, since API on HTTP are stateless.
   def destroy_session
     request.session_options[:skip] = true
   end
