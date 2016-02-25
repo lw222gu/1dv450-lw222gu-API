@@ -1,6 +1,8 @@
 class Api::V1::ResourceOwnersController < Api::V1::BaseController
+  before_action :offset_params, only: [:index]
+
   def index
-    resource_owners = ResourceOwner.all
+    resource_owners = ResourceOwner.limit(@limit).offset(@offset)
     render(
       json: ActiveModel::ArraySerializer.new(
         resource_owners,

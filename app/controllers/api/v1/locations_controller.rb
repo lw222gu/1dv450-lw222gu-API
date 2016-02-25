@@ -1,6 +1,8 @@
 class Api::V1::LocationsController < Api::V1::BaseController
+  before_action :offset_params, only: [:index]
+
   def index
-    locations = Location.all
+    locations = Location.limit(@limit).offset(@offset)
     render(
       json: ActiveModel::ArraySerializer.new(
         locations,
