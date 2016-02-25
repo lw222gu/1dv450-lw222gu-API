@@ -16,23 +16,19 @@ class Api::V1::SalariesController < Api::V1::BaseController
   end
 
   def create
-    salary = Salary.new(create_params.except(:tag_ids))
-    # salary = Salary.new(create_params)
-    tag_ids = create_params[:tag_ids]
-    tag_ids.each do |t|
-      if Tag.find(t)
-        salary.tags << t
+    salary = Salary.new(create_params.except(:tags))
+
+    if params[:tags].present?
+      tags = params[:tags]
+      tags.each do |t|
+        if Tag.find_by(tag: t)
+          salary.tags << Tag.find_by(tag: t)
+        else
+          salary.tags << Tag.create(tag: t)
+        end
       end
     end
 
-    # if create_params[:tag_ids].present?
-    # if create_params[:tags].present?
-      # tags = create_params[:tags]
-      # tags.each do |tag|
-        # salary.tags << Tag.find_by_name(tag)
-      # end
-    # end
-    # end
     return not_acceptable unless salary.valid?
     # If not valid, ActiveRecord::recordInvalid rescue in BaseController
     salary.save
@@ -58,11 +54,10 @@ class Api::V1::SalariesController < Api::V1::BaseController
       {
         wage: convert_to_integer(params[:wage]),
         title: params[:title],
-        tag_ids: params[tags_ids: []],
+        tags: params[tags: []],
         location_id: params[:location_id]
       }
     )
-    # parameters.require(:salary).permit(:wage, :title, :location_id, :tags)
-    parameters.require(:salary).permit(:wage, :title, :location_id, :tag_ids)
+    parameters.require(:salary).permit(:wage, :title, :location_id, :tags)
   end
 end
