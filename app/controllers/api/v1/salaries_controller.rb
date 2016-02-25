@@ -5,11 +5,12 @@ class Api::V1::SalariesController < Api::V1::BaseController
     salaries = Tag.find(params[:tag_id]).salaries if params[:tag_id].present?
     salaries = ResourceOwner.find(params[:resource_owner_id]).salaries if params[:resource_owner_id].present?
     salaries = Location.find(params[:location_id]).salaries if params[:location_id].present?
+    salaries = Salary.all unless salaries
+
     if salaries
+      salaries = salaries.order(created_at: :desc) if params[:order_by] == 'latest'
       salaries = salaries.drop(@offset)
       salaries = salaries.take(@limit)
-    else
-      salaries = Salary.limit(@limit).offset(@offset)
     end
 
     render(

@@ -91,3 +91,5 @@ salary2.save
 
 salary.tags << tag
 salary.tags << tag2
+
+salary2.tags << tag
