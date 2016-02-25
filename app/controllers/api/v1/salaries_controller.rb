@@ -52,9 +52,49 @@ class Api::V1::SalariesController < Api::V1::BaseController
   end
 
   def update
+    salary = Salary.find(params[:id])
+    if salary.update(create_params.except(:tags, :latitude, :longitude))
+      # TODO: Fix DRY
+      # TODO: Dont add tags or location if they are the same as before.
+      if params[:latitude].present? && params[:longitude].present?
+        lat = params[:latitude]
+        long = params[:longitude]
+
+        if Location.find_by(latitude: lat, longitude: long)
+          salary.location_id = Location.find_by(latitude: lat, longitude: long).id
+        else
+          salary.location_id = Location.create(latitude: lat, longitude: long).id
+        end
+      end
+
+      if params[:tags].present?
+        tags = params[:tags]
+        tags.each do |tag|
+          if Tag.find_by(tag: tag)
+            salary.tags << Tag.find_by(tag: tag)
+          else
+            salary.tags << Tag.create(tag: tag)
+          end
+        end
+      end
+
+      render(
+        json: salary,
+        status: 200,
+        location: api_v1_salary_path(salary.id),
+        serializer: Api::V1::SalarySerializer
+      )
+    else
+      not_acceptable
+    end
   end
 
   def destroy
+    if Salary.find(params[:id]).destroy
+      render json: { message: 'The salary has been removed.', status: 200 }
+    else
+      not_found
+    end
   end
 
   private

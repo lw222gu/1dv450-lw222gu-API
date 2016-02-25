@@ -18,12 +18,16 @@ Rails.application.routes.draw do
   # API routes
   namespace :api do
     namespace :v1 do
-      resources :users # this isn´t necessary I guess, remember to remove it if not used
-      resources :salaries
+      resources :salaries do
+        resources :tags
+        resources :locations
+      end
       resources :tags do
         resources :salaries
       end
-      resources :locations
+      resources :locations do
+        resources :salaries
+      end
     end
   end
 

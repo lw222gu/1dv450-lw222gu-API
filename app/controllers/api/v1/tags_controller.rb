@@ -27,11 +27,8 @@ class Api::V1::TagsController < Api::V1::BaseController
     )
   end
 
-  def update
-  end
-
-  def destroy
-  end
+  # No actions for update and delete,
+  # since that would affect many users and not only one
 
   private
 
