@@ -1,6 +1,5 @@
 class ClientsController < ApplicationController
   before_action :require_login
-  before_action :check_developer_rights
   before_action :fetch_client, only: [:destroy, :revoke, :reactivate]
 
   def index
@@ -27,7 +26,7 @@ class ClientsController < ApplicationController
   def destroy
     @client.destroy
     flash[:success] = 'Applikationen raderades.'
-    if current_user.role_id == 3
+    if current_user.role_id == 2
       redirect_to admins_path
     else
       redirect_to clients_path

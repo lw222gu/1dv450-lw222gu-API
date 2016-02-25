@@ -18,10 +18,7 @@ Test the application using the following accounts:
 1. Admin
    * Username: `admin`
    * Password: `pass123`
-2. Resource owner
-   * Username: `creator`
-   * Password: `123456`
-3. Developer
+2. Developer
    * Username: `developer`
    * Password: `123456`
 

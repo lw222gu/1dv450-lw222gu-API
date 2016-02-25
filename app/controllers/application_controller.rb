@@ -21,18 +21,18 @@ class ApplicationController < ActionController::Base
   end
 
   def check_admin_rights
-    unless current_user.role_id == 3
+    unless current_user.role_id == 2
       flash[:danger] = 'Du har inte rättigheter att visa sidan du efterfrågade.'
       redirect_to clients_path
     end
   end
 
-  def check_developer_rights
-    unless current_user.role_id == 2 || current_user.role_id == 3
-      flash[:danger] = 'Du har inte rättigheter att visa sidan du efterfrågade.'
-      redirect_to events_path
-    end
-  end
+  # def check_developer_rights
+  #   unless current_user.role_id == 1 || current_user.role_id == 2
+  #     flash[:danger] = 'Du har inte rättigheter att visa sidan du efterfrågade.'
+  #     redirect_to events_path
+  #   end
+  # end
 
   def no_cache
     response.headers['Cache-Control'] =

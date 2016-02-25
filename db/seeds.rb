@@ -21,22 +21,15 @@ admin = User.create
 admin.username = 'admin'
 admin.password = 'pass123'
 admin.password_confirmation = 'pass123'
-admin.role_id = 3
+admin.role_id = 2
 admin.save
 
 developer = User.create
 developer.username = 'developer'
 developer.password = '123456'
 developer.password_confirmation = '123456'
-developer.role_id = 2
+developer.role_id = 1
 developer.save
-
-creator = User.create
-creator.username = 'creator'
-creator.password = '123456'
-creator.password_confirmation = '123456'
-creator.role_id = 1
-creator.save
 
 c = Client.create
 c.name = 'En applikation'
