@@ -18,7 +18,7 @@ class Api::V1::SalariesController < Api::V1::BaseController
   def create
     salary = Salary.new(create_params.except(:tags, :latitude, :longitude))
 
-    if params[:latitude].present? && params[:longitude].present?
+    # if params[:latitude].present? && params[:longitude].present?
       lat = params[:latitude]
       long = params[:longitude]
 
@@ -27,7 +27,7 @@ class Api::V1::SalariesController < Api::V1::BaseController
       else
         salary.location_id = Location.create(latitude: lat, longitude: long).id
       end
-    end
+    # end
 
     if params[:tags].present?
       tags = params[:tags]
@@ -53,31 +53,37 @@ class Api::V1::SalariesController < Api::V1::BaseController
 
   def update
     salary = Salary.find(params[:id])
-    if salary.update(create_params.except(:tags, :latitude, :longitude))
-      # TODO: Fix DRY
-      # TODO: Dont add tags or location if they are the same as before.
-      if params[:latitude].present? && params[:longitude].present?
-        lat = params[:latitude]
-        long = params[:longitude]
 
-        if Location.find_by(latitude: lat, longitude: long)
-          salary.location_id = Location.find_by(latitude: lat, longitude: long).id
+    update_params = create_params
+    salary.wage = params[:wage] if update_params[:wage].present?
+    salary.title = params[:title] if update_params[:title].present?
+
+    if update_params[:latitude].present? && update_params[:longitude].present?
+      lat = params[:latitude]
+      long = params[:longitude]
+
+      if Location.find_by(latitude: lat, longitude: long)
+        salary.location_id = Location.find_by(latitude: lat, longitude: long).id
+      else
+        salary.location_id = Location.create(latitude: lat, longitude: long).id
+      end
+    end
+
+    if params[:tags].present?
+      salary.tags.delete_all
+      tags = params[:tags]
+      tags.each do |tag|
+        if Tag.find_by(tag: tag)
+          salary.tags << Tag.find_by(tag: tag)
         else
-          salary.location_id = Location.create(latitude: lat, longitude: long).id
+          salary.tags << Tag.create(tag: tag)
         end
       end
+    end
 
-      if params[:tags].present?
-        tags = params[:tags]
-        tags.each do |tag|
-          if Tag.find_by(tag: tag)
-            salary.tags << Tag.find_by(tag: tag)
-          else
-            salary.tags << Tag.create(tag: tag)
-          end
-        end
-      end
+    return not_acceptable unless salary.valid?
 
+    if salary.save
       render(
         json: salary,
         status: 200,
@@ -87,6 +93,41 @@ class Api::V1::SalariesController < Api::V1::BaseController
     else
       not_acceptable
     end
+
+    # if salary.update(create_params.except(:tags, :latitude, :longitude))
+    #   # TODO: Fix DRY
+    #   # TODO: Dont add tags or location if they are the same as before.
+    #   if params[:latitude].present? && params[:longitude].present?
+    #     lat = params[:latitude]
+    #     long = params[:longitude]
+    #
+    #     if Location.find_by(latitude: lat, longitude: long)
+    #       salary.location_id = Location.find_by(latitude: lat, longitude: long).id
+    #     else
+    #       salary.location_id = Location.create(latitude: lat, longitude: long).id
+    #     end
+    #   end
+
+      # if params[:tags].present?
+      #   tags = params[:tags]
+      #   tags.each do |tag|
+      #     if Tag.find_by(tag: tag)
+      #       salary.tags << Tag.find_by(tag: tag)
+      #     else
+      #       salary.tags << Tag.create(tag: tag)
+      #     end
+      #   end
+      # end
+
+    #   render(
+    #     json: salary,
+    #     status: 200,
+    #     location: api_v1_salary_path(salary.id),
+    #     serializer: Api::V1::SalarySerializer
+    #   )
+    # else
+    #   not_acceptable
+    # end
   end
 
   def destroy
