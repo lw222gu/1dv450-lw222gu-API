@@ -1,5 +1,6 @@
 class Api::V1::SalariesController < Api::V1::BaseController
   before_action :offset_params, only: [:index]
+  before_action :api_key
 
   def index
     salaries = Tag.find(params[:tag_id]).salaries if params[:tag_id].present?

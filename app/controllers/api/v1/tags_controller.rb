@@ -1,5 +1,6 @@
 class Api::V1::TagsController < Api::V1::BaseController
   before_action :offset_params, only: [:index]
+  before_action :api_key
 
   def index
     tags = Tag.limit(@limit).offset(@offset)

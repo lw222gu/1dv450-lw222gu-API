@@ -1,5 +1,6 @@
 class Api::V1::ResourceOwnersController < Api::V1::BaseController
   before_action :offset_params, only: [:index]
+  before_action :api_key
 
   def index
     resource_owners = ResourceOwner.limit(@limit).offset(@offset)

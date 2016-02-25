@@ -19,6 +19,21 @@ class Api::V1::BaseController < ApplicationController
     @limit ||= LIMIT
   end
 
+  def api_key
+    key = Client.find_by(key: request.headers['X-ApiKey'])
+    bad_request and return if key.nil?
+    invalid_key unless key.active
+    true
+  end
+
+  def bad_request
+    render json: { status: 400, error: 'Bad request' }.to_json
+  end
+
+  def invalid_key
+    render json: { status: 401, error: 'Unauthorized. Api key is revoked.' }.to_json
+  end
+
   def not_found
     # TODO: Instead of formatting json here, call a method that can handle
     # several error messages at once.
@@ -31,7 +46,7 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def removed
-    render json: { status: 200, message: 'The post has been removed.' }
+    render json: { status: 200, message: 'The post has been removed.' }.to_json
   end
 
   def convert_to_integer(string)

@@ -35,7 +35,7 @@ Rails.application.routes.draw do
       end
 
       resources :resource_owners do
-        resources :salaries        
+        resources :salaries
       end
     end
   end
