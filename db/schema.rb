@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224152238) do
+ActiveRecord::Schema.define(version: 20160225110359) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name",        limit: 50,                 null: false
@@ -26,16 +26,18 @@ ActiveRecord::Schema.define(version: 20160224152238) do
 
   add_index "clients", ["user_id"], name: "index_clients_on_user_id"
 
-  create_table "events", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "locations", force: :cascade do |t|
     t.decimal  "latitude",   null: false
     t.decimal  "longitude",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "resource_owners", force: :cascade do |t|
+    t.string   "username",        null: false
+    t.string   "password_digest", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -45,12 +47,12 @@ ActiveRecord::Schema.define(version: 20160224152238) do
   end
 
   create_table "salaries", force: :cascade do |t|
-    t.integer  "wage",                    null: false
-    t.string   "title",       limit: 250, null: false
-    t.integer  "user_id"
+    t.integer  "wage",                          null: false
+    t.string   "title",             limit: 250, null: false
+    t.integer  "resource_owner_id"
     t.integer  "location_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "salaries_tags", id: false, force: :cascade do |t|

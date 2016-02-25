@@ -20,4 +20,14 @@ s = Salary.create
 s.salary = 30000
 s.save
 Salary.find(3)
+ResourceOwners.all
+ResourceOwner.all
+r = ResourceOwner.find(1)
+r = ResourceOwner.all
+r = ResourceOwner.create
+r.username = 'owner'
+r.password = '123456'
+r.password_confirmation = '123456'
+r.save
+r = ResourceOwner.last
 exit

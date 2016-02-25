@@ -18,16 +18,23 @@ Rails.application.routes.draw do
   # API routes
   namespace :api do
     namespace :v1 do
+
+      # TODO: Add only's
+
       resources :salaries do
         resources :tags
         resources :locations
       end
+
       resources :tags do
         resources :salaries
       end
+
       resources :locations do
         resources :salaries
       end
+
+      resources :resource_owners
     end
   end
 
