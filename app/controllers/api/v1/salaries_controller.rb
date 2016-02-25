@@ -1,6 +1,8 @@
 class Api::V1::SalariesController < Api::V1::BaseController
+  before_action :offset_params, only: [:index]
+
   def index
-    salaries = Salary.all
+    salaries = Salary.limit(@limit).offset(@offset)
     render(
       json: ActiveModel::ArraySerializer.new(
         salaries,

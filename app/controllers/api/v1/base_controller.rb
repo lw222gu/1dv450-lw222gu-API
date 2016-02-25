@@ -9,6 +9,16 @@ class Api::V1::BaseController < ApplicationController
     request.session_options[:skip] = true
   end
 
+  OFFSET = 0
+  LIMIT = 20
+
+  def offset_params
+    @offset = convert_to_integer(params[:offset]) if params[:offset].present?
+    @limit = convert_to_integer(params[:limit]) if params[:limit].present?
+    @offset ||= OFFSET
+    @limit ||= LIMIT
+  end
+
   def not_found
     # TODO: Instead of formatting json here, call a method that can handle
     # several error messages at once.
