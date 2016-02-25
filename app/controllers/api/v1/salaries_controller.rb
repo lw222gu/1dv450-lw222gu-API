@@ -91,7 +91,7 @@ class Api::V1::SalariesController < Api::V1::BaseController
 
   def destroy
     if Salary.find(params[:id]).destroy
-      render json: { message: 'The salary has been removed.', status: 200 }
+      removed
     else
       not_found
     end

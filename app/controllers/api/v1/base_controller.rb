@@ -20,6 +20,10 @@ class Api::V1::BaseController < ApplicationController
     render json: { status: 406, error: 'Not acceptable.' }.to_json
   end
 
+  def removed
+    render json: { status: 200, message: 'The post has been removed.' }
+  end
+
   def convert_to_integer(string)
     Integer(string || '')
   rescue ArgumentError
