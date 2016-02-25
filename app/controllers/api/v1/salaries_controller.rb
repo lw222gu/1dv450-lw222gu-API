@@ -19,24 +19,23 @@ class Api::V1::SalariesController < Api::V1::BaseController
     salary = Salary.new(create_params.except(:tags, :latitude, :longitude))
 
     if params[:latitude].present? && params[:longitude].present?
-      latitude = params[:latitude]
-      longitude = params[:longitude]
+      lat = params[:latitude]
+      long = params[:longitude]
 
-      if Location.find_by(latitude: latitude, longitude: longitude)
-        salary.location_id = Location.find_by(latitude: latitude, longitude: longitude).id
+      if Location.find_by(latitude: lat, longitude: long)
+        salary.location_id = Location.find_by(latitude: lat, longitude: long).id
       else
-        salary.location_id = Location.create(latitude: latitude, longitude: longitude).id
+        salary.location_id = Location.create(latitude: lat, longitude: long).id
       end
-
     end
 
     if params[:tags].present?
       tags = params[:tags]
-      tags.each do |t|
-        if Tag.find_by(tag: t)
-          salary.tags << Tag.find_by(tag: t)
+      tags.each do |tag|
+        if Tag.find_by(tag: tag)
+          salary.tags << Tag.find_by(tag: tag)
         else
-          salary.tags << Tag.create(tag: t)
+          salary.tags << Tag.create(tag: tag)
         end
       end
     end
