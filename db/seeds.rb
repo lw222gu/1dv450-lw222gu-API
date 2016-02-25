@@ -86,7 +86,7 @@ salary2 = Salary.create
 salary2.wage = 29_500
 salary2.title = 'Web developer'
 salary2.location_id = 2
-salary.resource_owner_id = 2
+salary2.resource_owner_id = 2
 salary2.save
 
 salary.tags << tag

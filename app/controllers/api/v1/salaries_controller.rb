@@ -2,7 +2,16 @@ class Api::V1::SalariesController < Api::V1::BaseController
   before_action :offset_params, only: [:index]
 
   def index
-    salaries = Salary.limit(@limit).offset(@offset)
+    salaries = Tag.find(params[:tag_id]).salaries if params[:tag_id].present?
+    salaries = ResourceOwner.find(params[:resource_owner_id]).salaries if params[:resource_owner_id].present?
+    salaries = Location.find(params[:location_id]).salaries if params[:location_id].present?
+    if salaries
+      salaries = salaries.drop(@offset)
+      salaries = salaries.take(@limit)
+    else
+      salaries = Salary.limit(@limit).offset(@offset)
+    end
+
     render(
       json: ActiveModel::ArraySerializer.new(
         salaries,
