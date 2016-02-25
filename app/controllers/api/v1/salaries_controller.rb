@@ -16,7 +16,19 @@ class Api::V1::SalariesController < Api::V1::BaseController
   end
 
   def create
-    salary = Salary.new(create_params.except(:tags))
+    salary = Salary.new(create_params.except(:tags, :latitude, :longitude))
+
+    if params[:latitude].present? && params[:longitude].present?
+      latitude = params[:latitude]
+      longitude = params[:longitude]
+
+      if Location.find_by(latitude: latitude, longitude: longitude)
+        salary.location_id = Location.find_by(latitude: latitude, longitude: longitude).id
+      else
+        salary.location_id = Location.create(latitude: latitude, longitude: longitude).id
+      end
+
+    end
 
     if params[:tags].present?
       tags = params[:tags]
@@ -55,9 +67,12 @@ class Api::V1::SalariesController < Api::V1::BaseController
         wage: convert_to_integer(params[:wage]),
         title: params[:title],
         tags: params[tags: []],
-        location_id: params[:location_id]
+        latitude: params[:latitude],
+        longitude: params[:longitude]
       }
     )
-    parameters.require(:salary).permit(:wage, :title, :location_id, :tags)
+    parameters.require(:salary).permit(
+      :wage, :title, :latitude, :longitude, :tags
+    )
   end
 end
