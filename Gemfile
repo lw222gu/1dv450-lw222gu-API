@@ -32,6 +32,10 @@ gem 'rubocop'
 
 gem 'active_model_serializers'
 
+gem 'jwt'
+
+gem 'rename'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

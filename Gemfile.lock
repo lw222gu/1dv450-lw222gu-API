@@ -73,6 +73,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    jwt (1.5.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -116,6 +117,8 @@ GEM
     rainbow (2.1.0)
     rake (10.5.0)
     rdoc (4.2.1)
+    rename (1.0.2)
+      rails (>= 3.0.0)
     rubocop (0.37.2)
       parser (>= 2.3.0.4, < 3.0)
       powerpack (~> 0.1)
@@ -170,7 +173,9 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  jwt
   rails (= 4.2.5)
+  rename
   rubocop
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

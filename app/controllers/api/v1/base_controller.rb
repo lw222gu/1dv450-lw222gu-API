@@ -1,3 +1,5 @@
+require 'jwt'
+
 class Api::V1::BaseController < ApplicationController
   before_action :destroy_session
   protect_from_forgery with: :null_session
@@ -28,6 +30,10 @@ class Api::V1::BaseController < ApplicationController
 
   def bad_request
     render json: { status: 400, error: 'Bad request' }.to_json
+  end
+
+  def forbidden
+    render json: { status: 403, error: 'Forbidden.' }.to_json
   end
 
   def invalid_key
@@ -61,5 +67,33 @@ class Api::V1::BaseController < ApplicationController
   rescue ArgumentError
     # If string can not be converted to a float, or string is '', return nil
     nil
+  end
+
+  def api_authenticate
+    if request.headers['Authorization'].present?
+      header = request.headers['Authorization']
+      header.split(' ').last
+      @token_payload = decode_JWT header.strip
+      unless @token_payload
+        bad_request
+      end
+    else
+      forbidden
+    end
+  end
+
+  def decode_JWT(token)
+    payload = JWT.decode(token, Rails.application.secrets.secret_key_base, 'HS512')
+    if payload[0]['exp'] >= Time.now.to_i
+      payload
+    else
+      false
+    end
+    # rescue => error
+  end
+
+  def encode_JWT(resource_owner, expires = 1.hours.from_now)
+    payload = { user_id: resource_owner.id, exp: expires.to_i }
+    JWT.encode(payload, Rails.application.secrets.secret_key_base, 'HS512')
   end
 end

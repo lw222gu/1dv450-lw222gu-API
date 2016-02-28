@@ -1,5 +1,3 @@
-require 'api_constraints'
-
 Rails.application.routes.draw do
   root 'sessions#new'
 
@@ -20,6 +18,8 @@ Rails.application.routes.draw do
     namespace :v1 do
 
       # TODO: Add only's
+
+      post '/auth' => 'sessions#auth'
 
       resources :salaries do
         resources :tags
@@ -44,7 +44,7 @@ Rails.application.routes.draw do
     # constraints: { subdomain: 'api' }, path: '/' do
     # Versioning through headers. Default version is v1.
     # scope module: :v1,
-      # constraints: ApiConstraints.new(version: 1, default: true) do
+      # constraints: ApiKeyRegistrationConstraints.new(version: 1, default: true) do
       # resources :users # this isn´t necessary I guess, remember to remove it if not used
     # end
   # end

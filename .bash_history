@@ -270,3 +270,189 @@ rails s -b 0.0.0.0
 rails s -b 0.0.0.0
 rails s -b 0.0.0.0
 rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rake db:schema:load
+rake db:seed
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rake db:schema:load
+rake db:seed
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails destroy controller api/v1/users
+rails destroy controller api/v1/users
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rake db:schema:load
+rake db:seed
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails destroy model event
+rails destroy controller events
+rails s -b 0.0.0.0
+rails g model resource_owner
+rails g controller api/v1/resource_owner
+rails s -b 0.0.0.0
+rake db:schema:load
+rake db:drop
+rake db:migrate
+rake db:seed
+rails s -b 0.0.0.0
+rake db:drop
+rake db:migrate
+rake db:seed
+rails g serializer api/v1/resource_owner
+rake db:schema:load
+rake db:seed
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails destroy controller api/v1/resource_owner
+rails g controller api/v1/resource_owners
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails c
+rake db:migrate
+rake db:seed
+rails s -b 0.0.0.0
+rails c
+rails s -b 0.0.0.0
+rake db:schema:load
+rake db:seed
+rails s -b 0.0.0.0
+rails c
+rake db:schema:load
+rake db:seed
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rake db:seed
+rails s -b 0.0.0.0
+rake db:schema:load
+rake db:seed
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rake db:schema:load
+rake db:seed
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+bundle install
+rails g controller api/v1/sessions
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails -v
+bundle install
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+vagrant halt
+exit
+bundle install
+rake db:schema:load
+rake db:seed
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+jwt -v
+jwt -v
+bundle install
+bundle install
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+bundle install
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+bundle install
+rails g rename:app_to Api
+exit
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails g rename:app_to 
+rails g rename:app_to ApiKeyRegistration
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rake db:schema:load
+rake db:seed
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+vagrant halt
+exit
