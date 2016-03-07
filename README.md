@@ -22,7 +22,7 @@ Test the application using the following accounts:
    * Username: `developer`
    * Password: `123456`
 
-You can create your own user accounts (resource owner and developer).
+You can create your own developer accounts.
 
 ---
 Many thanks to [Oskar](https://github.com/OskarKlintrot) for contributing with a working vagrant setup.

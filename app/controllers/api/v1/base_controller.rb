@@ -40,6 +40,10 @@ class Api::V1::BaseController < ApplicationController
     render json: { status: 401, error: 'Unauthorized. Api key is revoked.' }.to_json
   end
 
+  def unauthorized
+    render json: { status: 401, error: 'Unauthorized.' }.to_json
+  end
+
   def not_found
     # TODO: Instead of formatting json here, call a method that can handle
     # several error messages at once.
@@ -69,6 +73,10 @@ class Api::V1::BaseController < ApplicationController
     nil
   end
 
+  def resource_owner_authentication(instance)
+    @current_user == instance.resource_owner_id
+  end
+
   def api_authenticate
     if request.headers['Authorization'].present?
       header = request.headers['Authorization']
@@ -77,6 +85,7 @@ class Api::V1::BaseController < ApplicationController
       unless @token_payload
         bad_request
       end
+      @current_user = @token_payload[0]['user_id']
     else
       forbidden
     end
@@ -89,7 +98,8 @@ class Api::V1::BaseController < ApplicationController
     else
       false
     end
-    # rescue => error
+  rescue
+    nil
   end
 
   def encode_JWT(resource_owner, expires = 1.hours.from_now)

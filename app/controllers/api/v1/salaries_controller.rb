@@ -1,7 +1,7 @@
 class Api::V1::SalariesController < Api::V1::BaseController
   before_action :offset_params, only: [:index]
   before_action :api_key
-  before_action :api_authenticate, only: [:create, :update]
+  before_action :api_authenticate, only: [:create, :update, :destroy]
 
   def index
     salaries = Tag.find(params[:tag_id]).salaries if params[:tag_id].present?
@@ -31,6 +31,9 @@ class Api::V1::SalariesController < Api::V1::BaseController
 
   def create
     salary = Salary.new(create_params.except(:tags, :latitude, :longitude))
+
+    unauthorized unless @current_user
+    salary.resource_owner_id = @current_user
 
     if params[:latitude].present? && params[:longitude].present?
       lat = params[:latitude]
@@ -67,6 +70,8 @@ class Api::V1::SalariesController < Api::V1::BaseController
 
   def update
     salary = Salary.find(params[:id])
+
+    return unauthorized unless resource_owner_authentication(salary)
 
     update_params = create_params
     salary.wage = params[:wage] if update_params[:wage].present?
@@ -110,7 +115,11 @@ class Api::V1::SalariesController < Api::V1::BaseController
   end
 
   def destroy
-    if Salary.find(params[:id]).destroy
+    salary = Salary.find(params[:id])
+
+    return unauthorized unless resource_owner_authentication(salary)
+
+    if salary.destroy
       removed
     else
       not_found

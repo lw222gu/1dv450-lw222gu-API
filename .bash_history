@@ -456,3 +456,5 @@ rails s -b 0.0.0.0
 rails s -b 0.0.0.0
 vagrant halt
 exit
+bundle install
+rails s -b 0.0.0.0
