@@ -53,18 +53,21 @@ r2.password_confirmation = '123456'
 r2.save
 
 location = Location.create
-location.latitude = 60.6065
-location.longitude = 15.6355
+# location.latitude = 60.6065
+# location.longitude = 15.6355
+location.address = 'Falun'
 location.save
 
 location2 = Location.create
-location2.latitude = 60.6341456
-location2.longitude = 15.8613386
+# location2.latitude = 60.6341456
+# location2.longitude = 15.8613386
+location2.address = 'Falun'
 location2.save
 
 location3 = Location.create
-location3.latitude = 70.5
-location3.longitude = 15.2
+# location3.latitude = 70.5
+# location3.longitude = 15.2
+location3.address = 'Borlänge'
 location3.save
 
 tag = Tag.create

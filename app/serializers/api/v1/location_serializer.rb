@@ -1,5 +1,5 @@
 class Api::V1::LocationSerializer < Api::V1::BaseSerializer
-  attributes :id, :latitude, :longitude, :salaries
+  attributes :id, :latitude, :longitude, :address, :salaries
 
   def salaries
     salaries = []

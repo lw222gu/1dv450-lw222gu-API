@@ -3,7 +3,15 @@ class Api::V1::LocationsController < Api::V1::BaseController
   before_action :api_key
 
   def index
-    locations = Location.limit(@limit).offset(@offset)
+    if params[:search].present?
+      locations = Location.near(params[:search], 5)
+    else
+      locations = Location.all
+    end
+    if locations
+      locations = locations.drop(@offset)
+      locations = locations.take(@limit)
+    end
     render(
       json: ActiveModel::ArraySerializer.new(
         locations,
@@ -20,9 +28,13 @@ class Api::V1::LocationsController < Api::V1::BaseController
 
   def create
     location = Location.new(create_params)
-    return not_acceptable unless location.valid?
-    # If not valid, ActiveRecord::recordInvalid rescue in BaseController
-    location.save!
+    if !params[:address].present?
+      if !params[:latitude].present? || !params[:longitude].present?
+        not_acceptable and return
+      end
+    end
+
+    location.save
     render(
       json: location,
       status: 201,
@@ -41,9 +53,10 @@ class Api::V1::LocationsController < Api::V1::BaseController
       location:
       {
         latitude: convert_to_decimal(params[:latitude]),
-        longitude: convert_to_decimal(params[:longitude])
+        longitude: convert_to_decimal(params[:longitude]),
+        address: params[:address]
       }
     )
-    parameters.require(:location).permit(:latitude, :longitude)
+    parameters.require(:location).permit(:latitude, :longitude, :address)
   end
 end

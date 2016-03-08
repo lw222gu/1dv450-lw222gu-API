@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(version: 20160225110359) do
   add_index "clients", ["user_id"], name: "index_clients_on_user_id"
 
   create_table "locations", force: :cascade do |t|
-    t.decimal  "latitude",   null: false
-    t.decimal  "longitude",  null: false
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -36,6 +36,8 @@ gem 'jwt'
 
 gem 'rename'
 
+gem 'geocoder'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
