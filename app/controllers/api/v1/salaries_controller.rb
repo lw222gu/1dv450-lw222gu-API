@@ -7,6 +7,19 @@ class Api::V1::SalariesController < Api::V1::BaseController
     salaries = Tag.find(params[:tag_id]).salaries if params[:tag_id].present?
     salaries = ResourceOwner.find(params[:resource_owner_id]).salaries if params[:resource_owner_id].present?
     salaries = Location.find(params[:location_id]).salaries if params[:location_id].present?
+
+    if params[:near].present?
+      location = Salary.find(params[:near]).location
+      nearby_locations = Location.near(location.address, 5)
+      salaries = Array.new
+      nearby_locations.each do |nearby_location|
+        nearby_location.salaries.each do |nearby_salary|
+          salary = Salary.find(nearby_salary)
+          salaries.push(salary)
+        end
+      end
+    end
+
     salaries = Salary.all unless salaries
 
     if salaries
@@ -136,11 +149,12 @@ class Api::V1::SalariesController < Api::V1::BaseController
         title: params[:title],
         tags: params[tags: []],
         latitude: params[:latitude],
-        longitude: params[:longitude]
+        longitude: params[:longitude],
+        address: params[:address]
       }
     )
     parameters.require(:salary).permit(
-      :wage, :title, :latitude, :longitude, :tags
+      :wage, :title, :latitude, :longitude, :tags, :address
     )
   end
 end
