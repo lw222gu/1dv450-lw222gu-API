@@ -1,5 +1,6 @@
 class Api::V1::TagsController < Api::V1::BaseController
   before_action :offset_params, only: [:index]
+  # Controls that the api key is valid.
   before_action :api_key
 
   def index
@@ -15,7 +16,11 @@ class Api::V1::TagsController < Api::V1::BaseController
 
   def show
     tag = Tag.find(params[:id])
-    render(json: Api::V1::TagSerializer.new(tag).to_json)
+    render(
+      json: Api::V1::TagSerializer.new(
+        tag
+      )
+    )
   end
 
   def create

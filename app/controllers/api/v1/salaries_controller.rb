@@ -1,6 +1,8 @@
 class Api::V1::SalariesController < Api::V1::BaseController
   before_action :offset_params, only: [:index]
+  # Controls that the api key is valid.
   before_action :api_key
+  # Authenticates user.
   before_action :api_authenticate, only: [:create, :update, :destroy]
 
   def index
@@ -21,8 +23,9 @@ class Api::V1::SalariesController < Api::V1::BaseController
     end
 
     if params[:search].present?
-      # Perhaps I should add search by location as well.
+      # Search by salary title
       salaries_by_title = Salary.search(params[:search])
+      # Search by tags
       tags = Tag.search(params[:search])
       salaries_by_tags = Array.new
       tags.each do |tag|
@@ -30,13 +33,15 @@ class Api::V1::SalariesController < Api::V1::BaseController
           salaries_by_tags.push(Salary.find(tag_salary.id))
         end
       end
+      # Combines the two arrays, removing duplicates
       salaries = salaries_by_title | salaries_by_tags
     end
 
+    # Unless any filtering parameters where added, get all salaries
     salaries = Salary.all unless salaries
 
     if salaries
-      salaries = salaries.order(created_at: :desc) if params[:order_by] == 'latest'
+      salaries = salaries.order(created_at: :desc) if params[:order_by] == 'desc'
       salaries = salaries.drop(@offset)
       salaries = salaries.take(@limit)
     end
@@ -52,7 +57,11 @@ class Api::V1::SalariesController < Api::V1::BaseController
 
   def show
     salary = Salary.find(params[:id])
-    render(json: Api::V1::SalarySerializer.new(salary).to_json)
+    render(
+      json: Api::V1::SalarySerializer.new(
+        salary
+      )
+    )
   end
 
   def create
@@ -91,7 +100,7 @@ class Api::V1::SalariesController < Api::V1::BaseController
     end
 
     return not_acceptable unless salary.valid?
-    # If not valid, ActiveRecord::recordInvalid rescue in BaseController
+
     salary.save
     render(
       json: salary,
@@ -104,6 +113,7 @@ class Api::V1::SalariesController < Api::V1::BaseController
   def update
     salary = Salary.find(params[:id])
 
+    # Returns unauthorized if user does not own the resource
     return unauthorized unless resource_owner_authentication(salary)
 
     update_params = create_params

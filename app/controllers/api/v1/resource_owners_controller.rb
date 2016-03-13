@@ -15,7 +15,11 @@ class Api::V1::ResourceOwnersController < Api::V1::BaseController
 
   def show
     resource_owner = ResourceOwner.find(params[:id])
-    render(json: Api::V1::ResourceOwnerSerializer.new(resource_owner).to_json)
+    render(
+      json: Api::V1::ResourceOwnerSerializer.new(
+        resource_owner
+      )
+    )
   end
 
   def create
@@ -28,14 +32,6 @@ class Api::V1::ResourceOwnersController < Api::V1::BaseController
       location: api_v1_resource_owner_path(resource_owner.id),
       serializer: Api::V1::ResourceOwnerSerializer
     )
-  end
-
-  def update
-    # Don't know if this one is necessary
-  end
-
-  def destroy
-    # Don't know if this one is necessary
   end
 
   def resource_owner_params

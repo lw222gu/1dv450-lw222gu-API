@@ -29,34 +29,34 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def bad_request
-    render json: { status: 400, error: 'Bad request' }.to_json
+    render json: { status: 400, error: 'Bad request' }
   end
 
   def forbidden
-    render json: { status: 403, error: 'Forbidden.' }.to_json
+    render json: { status: 403, error: 'Forbidden.' }
   end
 
   def invalid_key
-    render json: { status: 401, error: 'Unauthorized. Api key is revoked.' }.to_json
+    render json: { status: 401, error: 'Unauthorized. Api key is revoked.' }
   end
 
   def unauthorized
-    render json: { status: 401, error: 'Unauthorized.' }.to_json
+    render json: { status: 401, error: 'Unauthorized.' }
   end
 
   def not_found
     # TODO: Instead of formatting json here, call a method that can handle
     # several error messages at once.
-    render json: { status: 404, error: 'Not found' }.to_json
+    render json: { status: 404, error: 'Not found' }
   end
 
   def not_acceptable
     # TODO: check if status code is correct
-    render json: { status: 406, error: 'Not acceptable.' }.to_json
+    render json: { status: 406, error: 'Not acceptable.' }
   end
 
   def removed
-    render json: { status: 200, message: 'The post has been removed.' }.to_json
+    render json: { status: 200, message: 'The post has been removed.' }
   end
 
   def convert_to_integer(string)
@@ -76,6 +76,8 @@ class Api::V1::BaseController < ApplicationController
   def resource_owner_authentication(instance)
     @current_user == instance.resource_owner_id
   end
+
+  # JWT Authentication
 
   def api_authenticate
     if request.headers['Authorization'].present?

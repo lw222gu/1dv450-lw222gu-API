@@ -28,7 +28,7 @@ class Api::V1::LocationsController < Api::V1::BaseController
 
   def create
     location = Location.new(create_params)
-    if !params[:address].present?
+    unless params[:address].present?
       if !params[:latitude].present? || !params[:longitude].present?
         not_acceptable and return
       end
