@@ -43,7 +43,7 @@ class Api::V1::SalariesController < Api::V1::BaseController
   end
 
   def create
-    salary = Salary.new(create_params.except(:tags, :latitude, :longitude))
+    salary = Salary.new(create_params.except(:tags, :latitude, :longitude, :address))
 
     unauthorized unless @current_user
     salary.resource_owner_id = @current_user
@@ -56,6 +56,13 @@ class Api::V1::SalariesController < Api::V1::BaseController
         salary.location_id = Location.find_by(latitude: lat, longitude: long).id
       else
         salary.location_id = Location.create(latitude: lat, longitude: long).id
+      end
+    end
+    if params[:address].present?
+      if Location.find_by(address: params[:address])
+        salary.location_id = Location.find_by(address: params[:address]).id
+      else
+        salary.location_id = Location.create(address: params[:address]).id
       end
     end
 
@@ -98,6 +105,14 @@ class Api::V1::SalariesController < Api::V1::BaseController
         salary.location_id = Location.find_by(latitude: lat, longitude: long).id
       else
         salary.location_id = Location.create(latitude: lat, longitude: long).id
+      end
+    end
+
+    if params[:address].present?
+      if Location.find_by(address: params[:address])
+        salary.location_id = Location.find_by(address: params[:address]).id
+      else
+        salary.location_id = Location.create(address: params[:address]).id
       end
     end
 
