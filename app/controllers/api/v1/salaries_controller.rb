@@ -20,6 +20,19 @@ class Api::V1::SalariesController < Api::V1::BaseController
       end
     end
 
+    if params[:search].present?
+      # Perhaps I should add search by location as well.
+      salaries_by_title = Salary.search(params[:search])
+      tags = Tag.search(params[:search])
+      salaries_by_tags = Array.new
+      tags.each do |tag|
+        tag.salaries.each do |tag_salary|
+          salaries_by_tags.push(Salary.find(tag_salary.id))
+        end
+      end
+      salaries = salaries_by_title | salaries_by_tags
+    end
+
     salaries = Salary.all unless salaries
 
     if salaries
