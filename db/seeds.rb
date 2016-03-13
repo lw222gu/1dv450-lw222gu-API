@@ -30,7 +30,7 @@ c.description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 c.url = 'www.test.se'
 c.user_id = 2
 c.save
-c.key = 1234567890
+c.key = 1234567890 # added this only to get postman file to work easily.
 c.save
 
 c2 = Client.create

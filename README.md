@@ -12,7 +12,10 @@
   * `$ rake db:seed`
   * `$ rails s -b 0.0.0.0`
 
-## Existing user accounts
+## Test the API with Postman
+Add the file Salaries-API.json to Postman to test the API with some predefined requests.
+
+## Existing user accounts for laboration 1
 Test the application using the following accounts:
 
 1. Admin
