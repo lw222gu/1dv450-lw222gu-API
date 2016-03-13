@@ -29,30 +29,30 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def bad_request
-    render json: { status: 400, error: 'Bad request' }
+    render json: { status: 400, error: 'Bad request' }, status: :bad_request
   end
 
   def forbidden
-    render json: { status: 403, error: 'Forbidden.' }
+    render json: { status: 403, error: 'Forbidden.' }, status: :forbidden
   end
 
   def invalid_key
-    render json: { status: 401, error: 'Unauthorized. Api key is revoked.' }
+    render json: { status: 401, error: 'Unauthorized. Api key is revoked.' }, status: :unauthorized
   end
 
   def unauthorized
-    render json: { status: 401, error: 'Unauthorized.' }
+    render json: { status: 401, error: 'Unauthorized.' }, status: :unauthorized
   end
 
   def not_found
     # TODO: Instead of formatting json here, call a method that can handle
     # several error messages at once.
-    render json: { status: 404, error: 'Not found' }
+    render json: { status: 404, error: 'Not found' }, status: :not_found
   end
 
   def not_acceptable
     # TODO: check if status code is correct
-    render json: { status: 406, error: 'Not acceptable.' }
+    render json: { status: 406, error: 'Not acceptable.' }, status: :not_acceptable
   end
 
   def removed

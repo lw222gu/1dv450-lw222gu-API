@@ -23,7 +23,11 @@ class Api::V1::LocationsController < Api::V1::BaseController
 
   def show
     location = Location.find(params[:id])
-    render(json: Api::V1::LocationSerializer.new(location).to_json)
+    render(
+      json: Api::V1::LocationSerializer.new(
+        location
+      )
+    )
   end
 
   def create
