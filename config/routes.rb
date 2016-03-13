@@ -16,36 +16,24 @@ Rails.application.routes.draw do
   # API routes
   namespace :api do
     namespace :v1 do
-
-      # TODO: Add only's
-
       post '/auth' => 'sessions#auth'
 
-      resources :salaries do
-        resources :tags
-        resources :locations
+      resources :salaries, only: [:index, :show, :create, :update, :destroy] do
+        resources :tags, only: [:index]
+        resources :locations, only: [:index]
       end
 
-      resources :tags do
-        resources :salaries
+      resources :tags, only: [:index, :show, :create] do
+        resources :salaries, only: [:index]
       end
 
-      resources :locations do
-        resources :salaries
+      resources :locations, only: [:index, :show, :create] do
+        resources :salaries, only: [:index]
       end
 
-      resources :resource_owners do
-        resources :salaries
+      resources :resource_owners, only: [:index, :show, :create] do
+        resources :salaries, only: [:index]
       end
     end
   end
-
-  # namespace :api, defaults: { format: :json },
-    # constraints: { subdomain: 'api' }, path: '/' do
-    # Versioning through headers. Default version is v1.
-    # scope module: :v1,
-      # constraints: ApiKeyRegistrationConstraints.new(version: 1, default: true) do
-      # resources :users # this isn´t necessary I guess, remember to remove it if not used
-    # end
-  # end
 end
