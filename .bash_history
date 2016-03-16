@@ -1,14 +1,3 @@
-rails generate model Event
-rake db:drop
-rake db:drop
-rake db:migrate
-rake db:migrate
-rake db:seed
-rails s -b 0.0.0.0
-rails c
-rake db:seed
-rails c
-rake db:schema:load
 rake:db:seed
 rake db:seed
 rails c
@@ -496,5 +485,16 @@ bundle install
 vagrant up
 exit
 rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+exit
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+vagrant provision
+exit
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b 0.0.0.0
+exit
 rails s -b 0.0.0.0
 exit
