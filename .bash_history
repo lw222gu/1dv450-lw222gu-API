@@ -1,10 +1,3 @@
-rake:db:seed
-rake db:seed
-rails c
-rails c -b 0.0.0.0
-rails s -b 0.0.0.0
-rails generate controller Events
-rails s -b 0.0.0.0
 rails s -b 0.0.0.0
 rails c
 rails s -b 0.0.0.0
@@ -498,3 +491,10 @@ rails s -b 0.0.0.0
 exit
 rails s -b 0.0.0.0
 exit
+rails s -b 0.0.0.0
+rails -v
+bundle install
+rails s -b 0.0.0.0
+rails s -h
+rails s --port=4000 -b 0.0.0.0
+rails s --port=4000 -b 0.0.0.0

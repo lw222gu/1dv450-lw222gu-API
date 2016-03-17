@@ -4,6 +4,7 @@
 
 ## Instructions
 * Download, or fork and clone repository.
+* cd into folder.
 * Run:
   * `> vagrant up`
   * `> vagrant ssh` - if the terminal asks for a password it is `vagrant`
@@ -12,11 +13,13 @@
   * `$ rake db:seed`
   * `$ rails s -b 0.0.0.0`
 
+The application is running at `localhost:4000`
+
 ## Test the API with Postman
 Add the file Salaries-API.json to Postman to test the API with some predefined requests.
 
 ## Existing user accounts for laboration 1
-Test the application using the following accounts:
+For logging in to the register application from laboration 1, just use one of the following accounts.
 
 1. Admin
    * Username: `admin`

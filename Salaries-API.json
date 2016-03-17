@@ -36,7 +36,7 @@
 		{
 			"id": "0ca749a2-a7e9-5397-dfdd-44596906c366",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/auth?username=resourceowner&password=123456",
+			"url": "localhost:4000/api/v1/auth?username=resourceowner&password=123456",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "POST",
@@ -55,7 +55,7 @@
 		{
 			"id": "0f5fae25-5089-f262-f9df-71b3c5a337bb",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/locations/2",
+			"url": "localhost:4000/api/v1/locations/2",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -74,7 +74,7 @@
 		{
 			"id": "1fda90a0-0d83-bf46-c099-3ac1a2b89cd5",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/salaries?near=1",
+			"url": "localhost:4000/api/v1/salaries?near=1",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -93,7 +93,7 @@
 		{
 			"id": "25480570-2c66-5c8a-2b83-cc2412a2a5c5",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/salaries",
+			"url": "localhost:4000/api/v1/salaries",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -112,7 +112,7 @@
 		{
 			"id": "3e36ec96-a996-3786-eb04-17d184d69e81",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/salaries/1",
+			"url": "localhost:4000/api/v1/salaries/1",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -131,7 +131,7 @@
 		{
 			"id": "4121a868-1e9b-b3b7-dfe0-17ac88b15496",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/salaries?search=HTML",
+			"url": "localhost:4000/api/v1/salaries?search=HTML",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -150,7 +150,7 @@
 		{
 			"id": "48d7c0ae-ea00-6f66-c234-5a998790b8cc",
 			"headers": "",
-			"url": "localhost:3000/api/v1/salaries/1",
+			"url": "localhost:4000/api/v1/salaries/1",
 			"pathVariables": {},
 			"preRequestScript": "",
 			"method": "GET",
@@ -170,7 +170,7 @@
 		{
 			"id": "4d3a9603-6aed-a91b-6037-2cf17e6a6ebb",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/tags/1",
+			"url": "localhost:4000/api/v1/tags/1",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -189,7 +189,7 @@
 		{
 			"id": "4f6f3d50-bfd6-62d2-bc99-7557260e73e3",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/resource_owners/1/salaries",
+			"url": "localhost:4000/api/v1/resource_owners/1/salaries",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -208,7 +208,7 @@
 		{
 			"id": "524375eb-dace-fe8b-751e-9282b74686cb",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/salaries?limit=2&offset=2",
+			"url": "localhost:4000/api/v1/salaries?limit=2&offset=2",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -227,7 +227,7 @@
 		{
 			"id": "6e15ddd2-9dbc-56fc-0adf-c68eb0cf17f6",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/tags",
+			"url": "localhost:4000/api/v1/tags",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -246,7 +246,7 @@
 		{
 			"id": "6e7d9c2c-46e4-78ef-3b65-930fa6cd3cf4",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/locations/2/salaries",
+			"url": "localhost:4000/api/v1/locations/2/salaries",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -265,7 +265,7 @@
 		{
 			"id": "6ee1f741-f0d3-3f14-1a70-24ac4ecec368",
 			"headers": "X-ApiKey: 1234567890\nAuthorization: {{token}}\n",
-			"url": "localhost:3000/api/v1/salaries?wage=25000&title=HTML-Developer&address=Örebro&tags[]=JavaScript",
+			"url": "localhost:4000/api/v1/salaries?wage=25000&title=HTML-Developer&address=Örebro&tags[]=JavaScript",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "POST",
@@ -284,7 +284,7 @@
 		{
 			"id": "71dcfca9-bd23-5088-7274-d332108f88be",
 			"headers": "X-ApiKey: 1234567890\nAuthorization: {{token}}\n",
-			"url": "localhost:3000/api/v1/salaries/4",
+			"url": "localhost:4000/api/v1/salaries/4",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "DELETE",
@@ -303,7 +303,7 @@
 		{
 			"id": "7301cf9d-d4b5-a27b-b88c-180d365bcfbc",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/tags/1/salaries",
+			"url": "localhost:4000/api/v1/tags/1/salaries",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -322,7 +322,7 @@
 		{
 			"id": "8808b251-2fd1-1141-65e3-c180b83a76f1",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/locations",
+			"url": "localhost:4000/api/v1/locations",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -341,7 +341,7 @@
 		{
 			"id": "994e7aed-aa03-384e-e845-7b23808745e2",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/resource_owners",
+			"url": "localhost:4000/api/v1/resource_owners",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -360,7 +360,7 @@
 		{
 			"id": "b1da6885-3814-f2f0-f28d-cf0238c9c94c",
 			"headers": "X-ApiKey: 1234567890\nAuthorization: {{token}}\n",
-			"url": "localhost:3000/api/v1/salaries/2",
+			"url": "localhost:4000/api/v1/salaries/2",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "DELETE",
@@ -379,7 +379,7 @@
 		{
 			"id": "c36d77bf-a96c-c6f5-0f79-cf83a3c2e273",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/resource_owners?username=user&password=123456&password_confirmation=123456",
+			"url": "localhost:4000/api/v1/resource_owners?username=user&password=123456&password_confirmation=123456",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "POST",
@@ -398,7 +398,7 @@
 		{
 			"id": "c6094be1-a257-e042-31ce-469a34b2ccb6",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/salaries?order_by=desc",
+			"url": "localhost:4000/api/v1/salaries?order_by=desc",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -417,7 +417,7 @@
 		{
 			"id": "d824731c-04ac-20c5-4e58-546f68dbc754",
 			"headers": "X-ApiKey: 1234567890\nAuthorization: {{token}}\n",
-			"url": "localhost:3000/api/v1/salaries/1?wage=30000&title=Utvecklare&address=Avesta",
+			"url": "localhost:4000/api/v1/salaries/1?wage=30000&title=Utvecklare&address=Avesta",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "PUT",
@@ -436,7 +436,7 @@
 		{
 			"id": "ef944329-a782-fb8d-8f74-8f71959c26e3",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/salaries/1",
+			"url": "localhost:4000/api/v1/salaries/1",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -455,7 +455,7 @@
 		{
 			"id": "f192db89-6fb3-e482-802d-a0333cc97d39",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:3000/api/v1/locations?search=falun",
+			"url": "localhost:4000/api/v1/locations?search=falun",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
