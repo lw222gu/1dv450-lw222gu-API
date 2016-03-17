@@ -208,7 +208,7 @@
 		{
 			"id": "524375eb-dace-fe8b-751e-9282b74686cb",
 			"headers": "X-ApiKey: 1234567890\n",
-			"url": "localhost:4000/api/v1/salaries?limit=2&offset=2",
+			"url": "localhost:4000/api/v1/salaries?limit=1&offset=1",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -220,7 +220,7 @@
 			"helperAttributes": {},
 			"time": 1457898806871,
 			"name": "GET salaries with limit and offset",
-			"description": "Gets ona salary with offset 1.",
+			"description": "Gets one salary with offset 1.",
 			"collectionId": "1c31b5ec-3e60-967f-8ced-7c6fe1457a46",
 			"responses": []
 		},

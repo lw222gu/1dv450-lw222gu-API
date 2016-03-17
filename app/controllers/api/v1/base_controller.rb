@@ -45,13 +45,10 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def not_found
-    # TODO: Instead of formatting json here, call a method that can handle
-    # several error messages at once.
     render json: { status: 404, error: 'Not found' }, status: :not_found
   end
 
   def not_acceptable
-    # TODO: check if status code is correct
     render json: { status: 406, error: 'Not acceptable.' }, status: :not_acceptable
   end
 

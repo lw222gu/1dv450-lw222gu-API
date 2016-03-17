@@ -11,7 +11,7 @@
   * `$ bundle install`
   * `$ rake db:schema:load`
   * `$ rake db:seed`
-  * `$ rails s -b 0.0.0.0`
+  * `$ rails s -p 4000 -b 0.0.0.0`
 
 The application is running at `localhost:4000`
 

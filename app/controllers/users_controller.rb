@@ -20,17 +20,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def update
-  #   u = User.find(params[:id])
-  #   u.update(role_id: 2)
-  #   if u.valid?
-  #     redirect_to clients_path
-  #   else
-  #     flash[:danger] = u.errors.messages
-  #     redirect_to events_path
-  #   end
-  # end
-
   private
 
   def user_params
