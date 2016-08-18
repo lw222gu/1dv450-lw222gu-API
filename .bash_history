@@ -1,42 +1,4 @@
 rails s -b 0.0.0.0
-rails c
-rails s -b 0.0.0.0
-rails c
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-exit
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails c
-rails s -b 0.0.0.0
-rails c
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails c
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails c
-rails s -b 0.0.0.0
 rails s -b 0.0.0.0
 rails s -b 0.0.0.0
 rails c
@@ -498,3 +460,41 @@ rails s -b 0.0.0.0
 rails s -h
 rails s --port=4000 -b 0.0.0.0
 rails s --port=4000 -b 0.0.0.0
+rake db:schema:load
+rake db:seed
+rails s -b 0.0.0.0
+rake db:drop
+rake db:migrate
+rake db:seed
+rails s -b 0.0.0.0
+rails s --h
+rails s -b --p=4000 0.0.0.0
+rails s --p=4000
+bundle install
+rails s -p=4000 -b 0.0.0.0
+rails s -p=4000
+rails s --p=4000
+rails s -b 0.0.0.0
+rails s --h
+rails s -b -p 0.0.0.0
+rails s -b 0.0.0.0
+rails s -b -p 4000 0.0.0.0
+rails s -p 4000 -b 0.0.0.0
+rails s -p 4000 -b 0.0.0.0
+exit
+rails s -p 4000 -b 0.0.0.0
+rails s -p 4000 -b 0.0.0.0
+rails s -p 4000 -b 0.0.0.0
+bundle install
+rake db:schema:load
+rake db:seed
+
+rails s -p 4000 -b 0.0.0.0
+rails s -p 4000 -b 0.0.0.0
+rails s -p 4000 -b 0.0.0.0
+exit
+rails s -p 4000 -b 0.0.0.0
+vagrant halt
+exit
+rails s -p 4000 -b 0.0.0.0
+vagrant halt
