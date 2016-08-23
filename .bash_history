@@ -1,23 +1,3 @@
-exit
-rails s -b 0.0.0.0
-rails c
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-exit
-mkdir app/controllers/api/v1
 bundle install
 rails g rspec:install
 mkdir lib/spec
@@ -497,4 +477,24 @@ rails s -p 4000 -b 0.0.0.0
 ruby -v
 exit
 ruby -v
+exit
+bundle update
+exit
+bundle install
+rake db:schema:load
+rake db:seed
+exit
+bundle install
+rake db:schema:load
+ruby -v
+exit
+rails s -p 4000 -b 0.0.0.0
+
+rails s
+bundle install
+rake db:schema:load
+bundle install
+rake db:schema:load
+rake db:seed
+rails s -p 4000 -b 0.0.0.0
 exit

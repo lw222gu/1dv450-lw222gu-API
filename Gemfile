@@ -30,7 +30,8 @@ gem 'bootstrap-sass'
 
 gem 'rubocop'
 
-gem 'active_model_serializers'
+# gem 'active_model_serializers'
+gem 'active_model_serializers', '0.9.3'
 
 gem 'jwt'
 
