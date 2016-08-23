@@ -1,8 +1,3 @@
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails s -b 0.0.0.0
-rails c
-rake routes
 exit
 rails s -b 0.0.0.0
 rails c
@@ -498,3 +493,8 @@ vagrant halt
 exit
 rails s -p 4000 -b 0.0.0.0
 vagrant halt
+rails s -p 4000 -b 0.0.0.0
+ruby -v
+exit
+ruby -v
+exit
